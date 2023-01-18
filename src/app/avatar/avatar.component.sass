@@ -1,0 +1,45 @@
+.avatar-container
+  margin: 4rem
+  position: relative
+  width: fit-content
+  .box-shadow-avatar
+    box-shadow: 0 10px 20px 20px #6c93001a
+  .image-container
+    width: 20rem
+    height: 20rem
+    z-index: 1
+    border-radius: 50%
+    background-color: #fff
+    background-position: center
+    background-size: cover
+    box-shadow: 0 10px 20px 20px #6c93001a
+    &.avatar-placeholder
+      background-image: url('~src/assets/img/user.png')
+  label
+    cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
+    .icon-wrapper
+      width: 6rem
+      height: 6rem
+      padding: .5rem
+      position: absolute
+      right: 0
+      top: 75%
+      z-index: 2
+      background-color: #2962ff
+      border-radius: 50%
+      display: flex
+      justify-content: center
+      align-items: center
+      &:hover
+        transition: all .25s
+        background-color: darken(#2962ff, 15%)
+      .icon
+        width: 3rem
+        height: 3rem
+        font-size: 3rem
+        color: #fff
+      input[type='file']
+        display: none
