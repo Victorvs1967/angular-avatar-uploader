@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AvatarComponent } from './avatar/avatar.component';
 
 const routes: Routes = [
-  { path: '', component: AvatarComponent },
+  { path: '', redirectTo: 'profile', pathMatch: 'full' },
+  { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
 ];
 
 @NgModule({

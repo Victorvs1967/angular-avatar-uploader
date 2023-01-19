@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import Cropper from 'cropperjs';
 
 @Component({
@@ -11,7 +11,7 @@ import Cropper from 'cropperjs';
 export class ImageCropperComponent implements OnInit {
 
   cropper?: Cropper;
-  sanitizedUrl: any;
+  sanitizedUrl?: SafeUrl;
 
   constructor(
     public dialogRef: MatDialogRef<ImageCropperComponent>,
@@ -29,7 +29,6 @@ export class ImageCropperComponent implements OnInit {
 
   initCropper(): void {
     const image = document.getElementById('image') as HTMLImageElement;
-
     this.cropper = new Cropper(image, {
       aspectRatio: 1,
       viewMode: 1,
@@ -66,8 +65,8 @@ export class ImageCropperComponent implements OnInit {
     const roundedCanvas = this.getRoundedCanvas(croppedCanvas);
 
     let roundedImage = document.createElement('img');
-
-    if (roundedCanvas) {
+    
+    if (roundedImage) {
       this.dialogRef.close(roundedCanvas.toDataURL());
     } else {
       return this.dialogRef.close(null);

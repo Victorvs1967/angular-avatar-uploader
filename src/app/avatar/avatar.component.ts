@@ -2,29 +2,58 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { ImageCropperComponent } from './image-cropper/image-cropper.component';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-avatar',
   templateUrl: './avatar.component.html',
-  styleUrls: ['./avatar.component.sass']
+  styleUrls: ['./avatar.component.sass'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: AvatarComponent,
+    },
+  ],
 })
-export class AvatarComponent {
+export class AvatarComponent implements ControlValueAccessor {
 
   file: string = '';
 
   constructor(private dialog: MatDialog) {}
+
+  writeValue(_file: string): void {
+    this.file = _file;
+  }
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+  setDisabledState?(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
+  onChange = (fileUrl: string) => { };
+  onTouched = () => { };
+  disabled: boolean = false;
 
   onFileChange(event: any) {
     const files = event.target.files as FileList;
 
     if (files.length > 0) {
       const _file = URL.createObjectURL(files[0]);
-      this.file = _file;
       this.resetInput();
       this.openAvatarEditor(_file)
         .subscribe(
-          result => 
-          { if (result) this.file = result });
+          result => { 
+            if (result) {
+              this.file = result;
+              this.onChange(this.file);
+            }
+          }
+        )
     }
   }
 
