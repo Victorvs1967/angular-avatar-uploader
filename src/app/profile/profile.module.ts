@@ -7,19 +7,19 @@ import { AvatarModule } from '../avatar/avatar.module';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-    { path: '', component: ProfileComponent },
+  { path: '', component: ProfileComponent },
 ];
 
 @NgModule({
-    declarations: [
-        ProfileComponent,
-    ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        ReactiveFormsModule,
-        MaterialUiModule,
-        AvatarModule,
-    ]
+  declarations: [
+    ProfileComponent,
+  ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
+    MaterialUiModule,
+    AvatarModule,
+  ],
 })
 export class ProfileModule { }

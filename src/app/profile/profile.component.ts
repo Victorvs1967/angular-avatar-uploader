@@ -22,7 +22,7 @@ export class ProfileComponent {
   }
 
   submit(): void {
-    console.log('Valid status: ' + this.form.valid);
+    console.log(this.form.valid ? 'Form Valid.' : 'Form Invalid.');
     console.log(this.form.controls['avatar']);
   }
 
