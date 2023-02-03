@@ -64,8 +64,8 @@ export class AvatarComponent implements ControlValueAccessor {
 
   openAvatarEditor(image: string): Observable<any> {
     return this.dialog.open(ImageCropperComponent, {
-      maxWidth: '95vw',
-      maxHeight: '95vh',
+      maxWidth: '80vw',
+      maxHeight: '80vh',
       data: image,
     })
     .afterClosed();
