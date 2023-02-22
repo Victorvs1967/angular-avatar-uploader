@@ -36,6 +36,7 @@ export class ImageCropperComponent implements OnInit {
     });
   }
 
+  // make the crop box rounded
   getRoundedCanvas(sourceCanvas: any) {
     const canvas = document.createElement('canvas');
     const context: any = canvas.getContext('2d');
@@ -60,6 +61,8 @@ export class ImageCropperComponent implements OnInit {
     return canvas;
   }
 
+  // get the cropped image and close the dialog
+  // return an url or null if no image
   crop() {
     const croppedCanvas = this.cropper?.getCroppedCanvas();
     const roundedCanvas = this.getRoundedCanvas(croppedCanvas);
@@ -73,6 +76,7 @@ export class ImageCropperComponent implements OnInit {
     }
   }
 
+  // reset the cropper
   reset() {
     this.cropper?.clear();
     this.cropper?.crop();
