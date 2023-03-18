@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print to concole
-        run: echo Hello gitHub Actions!
+        run: echo Hello GitHub Actions!
