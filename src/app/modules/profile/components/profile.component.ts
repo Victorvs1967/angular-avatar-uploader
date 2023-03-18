@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { UserService } from './../../../services/user.service';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -7,10 +9,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./profile.component.sass']
 })
 export class ProfileComponent {
-  
+
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private userService: UserService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+  ) {
     this.form = this.formBuilder.group({
       username: '',
       password: '',
@@ -24,6 +30,8 @@ export class ProfileComponent {
   submit(): void {
     console.log(this.form.valid ? 'Form Valid.' : 'Form Invalid.');
     console.log(this.form.controls['avatar'].value);
+    this.userService.saveUserData(this.form.value);
+    this.router.navigate(['files']);
   }
 
 }

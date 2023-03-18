@@ -11,6 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 const MATERIAL_UI = [
   MatButtonModule,
@@ -25,6 +26,7 @@ const MATERIAL_UI = [
   MatToolbarModule,
   MatTooltipModule,
   MatMenuModule,
+  MatProgressBarModule,
 ];
 
 @NgModule({

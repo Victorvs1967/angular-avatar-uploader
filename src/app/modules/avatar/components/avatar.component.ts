@@ -47,7 +47,7 @@ export class AvatarComponent implements ControlValueAccessor {
       this.resetInput();
       this.openAvatarEditor(_file)
         .subscribe(
-          result => { 
+          result => {
             if (result) {
               this.file = result;
               this.onChange(this.file);

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ImageCropperComponent } from './image-cropper/image-cropper.component';
-import { AvatarComponent } from './avatar.component';
+import { ImageCropperComponent } from './components/image-cropper/image-cropper.component';
 import { MaterialUiModule } from '../material-ui/material-ui.module';
+import { AvatarComponent } from './components/avatar.component';
 
 @NgModule({
   declarations: [
