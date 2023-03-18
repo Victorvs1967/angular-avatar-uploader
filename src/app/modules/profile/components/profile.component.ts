@@ -30,7 +30,9 @@ export class ProfileComponent {
   submit(): void {
     console.log(this.form.valid ? 'Form Valid.' : 'Form Invalid.');
     console.log(this.form.controls['avatar'].value);
-    this.userService.saveUserData(this.form.value);
+    const user = this.form.value;
+    user.avatar = 'avatar';
+    this.userService.saveUserData(user);
     this.router.navigate(['files']);
   }
 
